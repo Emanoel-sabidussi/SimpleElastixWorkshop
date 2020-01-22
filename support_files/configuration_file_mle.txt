@@ -1,0 +1,26 @@
+{ "Configuration-file": {
+	"global-config":{
+		"model": "MLE",
+		"contrast": "T1",
+		"use_cuda": false
+    },
+	"acquisition-parameters": {
+        "voxel_size": [1,1,1]
+	},
+	"optimizer-parameters": {
+		"learning_rate_relaxometry": 0.0075,
+		"learning_rate_motion": 0.005,
+		"training_epochs": 500,
+		"relaxometry_epochs": 500,
+		"motion_epochs": 1
+	},
+    "image-parameters": {
+        "noise_type": "Gaussian",
+        "padding_size": 10
+    },
+	"data-paths": {
+		"dataset_path": "/Volumes/HD/Emanoel_Documents/EMC/datasets/Simulated/",
+		"save_inference_path": "/Users/emanoel-emc/Documents/Development/EMC/T1Mapping_method_comparison/Abstract_ISMRM/phantom_data/2d/T1/testing/MLE_inferred/"
+	}
+   }
+}
