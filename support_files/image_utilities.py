@@ -77,11 +77,42 @@ def load_hdf5(path):
     return dataset1, dataset2, dataset3
 
 
-def compare_predictions(a, b):
-    fig, ax = plt.subplots(1,4)
-    ax[0].imshow(a, vmin=0.0, vmax=3.5)
-    ax[1].imshow(b, vmin=0.0, vmax=3.5)
-    ax[2].imshow(a - b, vmin=-0.2, vmax=0.2)
-    ax[3].plot(a, a - b, 'x')
-    ax[3].plot([0,5], [0,0], '-k', linewidth=0.5)
+def compare_predictions(a, b, colormap_c, text_a, text_b):
+    fig, ax = plt.subplots(1,4, figsize=(9,9))
+    im1 = ax[0].imshow(a, vmin=0.0, vmax=3.5, cmap=colormap_c)
+    ax[0].set_title(text_a)
+
+    cbar_0 = fig.colorbar(im1, ax=ax[0],fraction=0.040, pad=0.04)
+    cbar_0.ax.get_yaxis().labelpad = 10
+    cbar_0.ax.set_ylabel('[s]', rotation=270)
+
+    im2 = ax[1].imshow(b, vmin=0.0, vmax=3.5, cmap=colormap_c)
+    ax[1].set_title(text_b)
+
+    cbar_1 = fig.colorbar(im2, ax=ax[1],fraction=0.040, pad=0.04)
+    cbar_1.ax.get_yaxis().labelpad = 10
+    cbar_1.ax.set_ylabel('[s]', rotation=270)
+
+    im3 = ax[2].imshow(a - b, vmin=-0.2, vmax=0.2, cmap=colormap_c)
+    ax[2].set_title('difference map')
+
+    cbar_2 = fig.colorbar(im3, ax=ax[2],fraction=0.040, pad=0.04)
+    cbar_2.ax.get_yaxis().labelpad = 10
+    cbar_2.ax.set_ylabel('[s]', rotation=270)
+
+    ax[3].plot(a, b, 'rx')
+    ax[3].plot([0,2], [0,2], '-k', linewidth=0.5)
+    ax[3].set_xlim([0,2])
+    ax[3].set_ylim([0,2])
+    ax[3].set_xlabel(text_a)
+    ax[3].set_ylabel(text_b)
+
+    fig.tight_layout()
+
+    #plt.subplots_adjust(left=0.2, right=0.5, bottom=0.1, top=0.2)
+    plt.gca().set_aspect('equal', adjustable='box')
+    plt.draw()
     plt.show()
+
+    
+        
