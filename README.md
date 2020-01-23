@@ -1,6 +1,6 @@
 ## Option-1 
 Run the notebook on Binder:
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/agahkarakuzu/elastix_openmrb/master)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Emanoel-sabidussi/SimpleElastixWorkshop/master)
 
 
 
