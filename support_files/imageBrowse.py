@@ -2,7 +2,7 @@ from ipywidgets import *
 import numpy as np
 import matplotlib.pyplot as plt
 
-def imageBrowse(im, im_ax=0, rang_min = 0, rang_max = 1.5, colormap_c='gray', fig_title='T1 weighted series'):
+def imageBrowse(im, im_ax=0, rang_min = 0, rang_max = 1.5, colormap_c='gray', fig_title='T1 weighted series', ylabel='[s]'):
     """imageBrowse: Simple visualisation tool. It accepts 3D or 4D matrices.
         This method plots the 3D or 4D images (if 4D, multiple views are available).
         It also shows the signal evolution for a given point, which can be chosen by mouse interaction.
@@ -58,7 +58,7 @@ def imageBrowse(im, im_ax=0, rang_min = 0, rang_max = 1.5, colormap_c='gray', fi
 
         cbar = fig.colorbar(line0, ax=ax[0],fraction=0.040, pad=0.04)
         cbar.ax.get_yaxis().labelpad = 15
-        cbar.ax.set_ylabel('[s]', rotation=270)
+        cbar.ax.set_ylabel(ylabel, rotation=270)
 
         line3, = ax[1].plot(it, im[:, ax1, ax2], '--xr', linewidth=0.5)
         ax[1].set_ylim([np.min(im[:, ax1, ax2])-0.1, np.max(im[:, ax1, ax2])+0.1])

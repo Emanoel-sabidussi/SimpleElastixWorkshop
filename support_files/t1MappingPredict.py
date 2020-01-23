@@ -8,9 +8,9 @@ sys.path.append("../")
 import torch
 
 import support_files.configuration as configuration
-import support_files.image_utilities as image_utilities
-import support_files.noise_model as noise_model
-import support_files.relaxometry_models as relaxometry_models
+import support_files.imageUtilities as image_utilities
+import support_files.noiseModel as noise_model
+import support_files.relaxometryModels as relaxometry_models
 
 
 def printLoss(args):
