@@ -1,0 +1,6 @@
+matplotlib
+ipywidgets
+scipy
+h5py
+nibabel
+torch==1.3

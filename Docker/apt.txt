@@ -1,0 +1,6 @@
+build-essential
+wget
+bzip2
+git 
+cmake
+python-dev
