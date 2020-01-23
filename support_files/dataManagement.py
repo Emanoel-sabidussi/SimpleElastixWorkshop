@@ -71,7 +71,12 @@ def loadRealData(filepath, sliceSelect=[]):
     dataNorm = data/1000
     
     observedSeries = {}
-    observedSeries['weighted_series'] = np.transpose(dataNorm, (2, 0, 1))
+    if sliceSelect:
+        observedSeries['weighted_series'] = np.transpose(dataNorm, (2, 0, 1))
+    else:
+        observedSeries['weighted_series'] = np.transpose(dataNorm, (3, 0, 1, 2))
+        print(np.shape(observedSeries['weighted_series']))
+
     observedSeries['echo_times'] = matFile["TI"][0]/1000
     
     print("Data loaded")
@@ -87,7 +92,7 @@ def prepareDataForElastix(filepath):
 
 def saveNii(data, filepath):
     print("saving data")
-    data = np.transpose(data, (1,2,0))
+    data = np.transpose(data, (1,2,3,0))
     data_nii = convertToNii(data)
     niiDataPath = filepath
     

@@ -132,6 +132,7 @@ def imageBrowse(im, im_ax=0, rang_min = 0, rang_max = 1.5, colormap_c='gray', fi
             lr.append(ax[1].axhline(y=int(coord["z"]),color='red', linewidth=0.5))
             lr.append(ax[2].axvline(x=int(coord["y"]),color='red', linewidth=0.5))
             lr.append(ax[2].axhline(y=int(coord["z"]),color='red', linewidth=0.5))
+
             
         if dim == 3:
             coord["x"] = event.xdata
@@ -140,6 +141,10 @@ def imageBrowse(im, im_ax=0, rang_min = 0, rang_max = 1.5, colormap_c='gray', fi
             line3.set_ydata(im[:, int(coord["y"]), int(coord["x"])])
             ax[1].set_ylim([np.min(im[:, int(coord["x"]), int(coord["y"])])-0.1, np.max(im[:, int(coord["x"]), int(coord["y"])])+0.1])
             
+            x0,x1 = ax[1].get_xlim()
+            y0,y1 = ax[1].get_ylim()
+            ax[1].set_aspect((x1-x0)/(y1-y0))
+
             lr.append(ax[0].axvline(x=int(coord["x"]),color='red', linewidth=0.5))
             lr.append(ax[0].axhline(y=int(coord["y"]),color='red', linewidth=0.5))
         
