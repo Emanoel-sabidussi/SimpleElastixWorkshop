@@ -3,4 +3,4 @@ ipywidgets
 scipy
 h5py
 nibabel
-torch==1.3
+torch==2.2.0
